@@ -25,8 +25,11 @@ impeachTrumpSplice = presidents.splice(1, 3,)
 console.log(impeachTrumpSlice); // ["Obama", "Bush", "Clinton"]
 console.log(impeachTrumpSplice);
 
-
 // Opdracht 6
-
 let woorden = ['Winc', 'Academy', 'is', 'leuk', ';-}']
-console.log(woorden.join(' ')); 
+console.log(woorden.join(' '));
+
+// Opdracht 7
+let one = [1, 2, 3];
+let two = [4, 5, 6];
+console.log(one.concat(two));
