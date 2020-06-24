@@ -14,7 +14,6 @@ console.log([1, 2, 3].map(getal => getal * 2));
 // result should be [2, 4, 6]
 
 // Opdracht 3
-let numbers = ;
 let search = (nummer) => nummer > 10;
 console.log([1, 4, 3, 6, 9, 7, 11].some(search));
 
