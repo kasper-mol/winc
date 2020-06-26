@@ -8,23 +8,41 @@
     <title>Moviepicker</title>
     <script defer type="text/javascript" src="database.js"></script>
     <script defer type="text/javascript" src="script.js"></script>
-
-
+    <link type="text/css" rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="menu-wrap">
-        <h1>The movie picker</h1>
+        <h1>Welkom bij de Winc Filmzoeker</h1>
         <div class="filter-wrap">
-            <input type="radio" id="nieuwe-films" name="filter" onclick="filterMovies(0)">Nieuwe-films
-            <input type="radio" id="avengers" name="filter" onclick="filterMovies(1)">Avengers
-            <input type="radio" id="x-men" name="filter" onclick="filterMovies(2)"> X-Men
-            <input type="radio" id="princess" name="filter" onclick="filterMovies(3)"> Princess
-            <input type="radio" id="batman" name="filter" onclick="filterMovies(4)">Batman
+            <span class="selectwrap"><input class="filter" type="radio" id="nieuwe-films" name="filter"
+                    onclick="filterMovies(0)">
+                <p>Nieuwe films</p>
+            </span>
+            <span class="selectwrap"><input class="filter" type="radio" id="avengers" name="filter"
+                    onclick="filterMovies(1)">
+                <p>Avengers</p>
+            </span>
+            <span class="selectwrap"><input class="filter" type="radio" id="x-men" name="filter"
+                    onclick="filterMovies(2)">
+                <p>X-Men</p>
+            </span>
+            <span class="selectwrap"><input class="filter" type="radio" id="princess" name="filter"
+                    onclick="filterMovies(3)">
+                <p>Princess</p>
+            </span>
+            <span class="selectwrap"><input class="filter" type="radio" id="batman" name="filter"
+                    onclick="filterMovies(4)">
+                <p>Batman</p>
+            </span>
+            <span id="search" class="selectwrap"><input class="filter" type="text" id="zoekbalk"
+                    onkeyup="filterMovies(5)" placeholder="Search for names..">
+            </span>
+
         </div>
     </div>
     <div id="moviewrap">
-        <h1>Beschikbare films</h1>
+
         <ul id="movielist">
 
         </ul>
