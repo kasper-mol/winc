@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Moviepicker</title>
+    <script defer type="text/javascript" src="database.js"></script>
+    <script defer type="text/javascript" src="script.js"></script>
+
+
+</head>
+
+<body>
+    <div class="menu-wrap">
+        <h1>The movie picker</h1>
+        <div class="filter-wrap">
+            <input type="radio" id="nieuwe-films" name="filter" onclick="filterMovies(0)">Nieuwe-films
+            <input type="radio" id="avengers" name="filter" onclick="filterMovies(1)">Avengers
+            <input type="radio" id="x-men" name="filter" onclick="filterMovies(2)"> X-Men
+            <input type="radio" id="princess" name="filter" onclick="filterMovies(3)"> Princess
+            <input type="radio" id="batman" name="filter" onclick="filterMovies(4)">Batman
+        </div>
+    </div>
+    <div id="moviewrap">
+        <h1>Beschikbare films</h1>
+        <ul id="movielist">
+
+        </ul>
+    </div>
+</body>
+
+
+</html>
