@@ -21,70 +21,47 @@ const xmenOnly = (film) => { return film.Title.includes("X-Men"); }
 const princessOnly = (film) => { return film.Title.includes("Princess"); }
 const batmanOnly = (film) => { return film.Title.includes("Batman"); }
 
+// Add movies
+const addMovies = (soort) => {
+    soort.forEach(Element => {
+        let newPoster = document.createElement("img");
+        let link = document.createElement("a");
+        movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
+        newPoster.setAttribute("src", Element.Poster);
+        link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
+    }
+    )
+}
+
 // switch for diffferent filters
 const filterMovies = (x) => {
     switch (x) {
         case 0:  // only new movies
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const filterNew = moviesDatabase.filter(newOnly);
-            filterNew.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
-                newPoster.setAttribute("src", Element.Poster);
-                link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
-            }
-            )
+            addMovies(filterNew);
             break;
-
         case 1:  // only avengers movies
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const filterAvengers = moviesDatabase.filter(avengersOnly);
-            filterAvengers.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
-                newPoster.setAttribute("src", Element.Poster);
-                link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
-            }
-            )
+            addMovies(filterAvengers);
             break;
         case 2:  // only x-men movies
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const filterXmen = moviesDatabase.filter(xmenOnly);
-            filterXmen.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(newPoster))
-                newPoster.setAttribute("src", Element.Poster);
-            }
-            )
+            addMovies(filterXmen);
             break;
         case 3:  // only princess movies
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const filterPrincess = moviesDatabase.filter(princessOnly);
-            filterPrincess.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
-                newPoster.setAttribute("src", Element.Poster);
-                link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
-            }
-            )
+            addMovies(filterPrincess);
             break;
         case 4:  // only batman movies
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const filterBatman = moviesDatabase.filter(batmanOnly);
-            filterBatman.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
-                newPoster.setAttribute("src", Element.Poster);
-                link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
-            }
-            )
+            addMovies(filterBatman);
             break;
-        case 5:  // only batman movies
+        case 5:  // search results
             movieList.querySelectorAll("img").forEach(n => n.remove());
             const zoekFilter = (film) => {
                 let zoekLijst = film.Title.toLowerCase();
@@ -92,14 +69,7 @@ const filterMovies = (x) => {
                 return zoekLijst.includes(zoekCritera);
             }
             const zoeken = moviesDatabase.filter(zoekFilter);
-            zoeken.forEach(Element => {
-                let newPoster = document.createElement("img");
-                let link = document.createElement("a");
-                movieList.appendChild(document.createElement("li").appendChild(link)).appendChild(newPoster);
-                newPoster.setAttribute("src", Element.Poster);
-                link.setAttribute("href", "https://www.imdb.com/title/" + Element.imdbID);
-            }
-            )
+            addMovies(zoeken);
             break;
     }
 }
