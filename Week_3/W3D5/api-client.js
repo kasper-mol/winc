@@ -23,8 +23,6 @@ const postNewTask = async (userInput) => {
   });
   const tasksArray = await fetchTasks()
   return tasksArray[tasksArray.length - 1];
-
-  //createTaskList();
 };
 
 //Delete task

@@ -1,0 +1,13 @@
+a:hover {
+    font-weight: 500;
+    background-color: red;
+}
+
+.link:active {
+    color: red;
+    text-decoration: royalblue;
+}
+
+.link2:visited {
+    color: yellow;
+}
