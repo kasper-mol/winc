@@ -1,27 +1,29 @@
 
-const { checkUppercase, checkLowercase, checkNumber } = require("./script.js")
+const { isNotBlank,
+    isLessThan8Chars,
+    hasUppercase,
+    hasLowercase,
+    hasDigit, } = require("./script.js")
 
 
 test("Password is korter dan 9", function () {
-    const input = "henkie12"
-    expect(input.length).toBeLessThan(9);
+    expect(isLessThan8Chars("henKie1")).toBeTruthy();
 });
 
 test("Password is niet null", function () {
-    const input = "henkie12";
-    expect(input).not.toBeNull();
+    expect(isNotBlank("henKie12")).toBeTruthy();
 });
 
 test("Password heeft uppercase", function () {
-    expect(checkUppercase("henKie12")).not.toBeFalsy();
+    expect(hasUppercase("henKie12")).toBeTruthy();
 });
 
 test("Password heeft lowercase", function () {
-    expect(checkLowercase("TESsT2")).not.toBeFalsy();
+    expect(hasLowercase("henKie12")).toBeTruthy();
 });
 
 test("Password heeft nummer", function () {
-    expect(checkNumber("xfsad1")).not.toBeFalsy();
+    expect(hasDigit("Henkie12")).toBeTruthy();
 });
 
 

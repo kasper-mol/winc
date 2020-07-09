@@ -9,25 +9,7 @@ const passwordVerifier = function (password) {
     let score = 0;
 
     // Voor elke conditie maken we een interne check
-    const isNotBlank = (pw) => {
-        pw != ""
-    }
-    const isLessThan8Chars = (pw) => {
-        return pw.length < 8
-    }
-    const hasUppercase = (pw) => {
-        const regex = /^.*[A-Z].*/
-        return regex.test(pw);
-    }
-    const hasLowercase = (pw) => {
-        const regex = /^.*[a-z].*/
-        return regex.test(password);
-    }
 
-    const hasDigit = (pw) => {
-        const regex = /^.*[0-9].*/
-        return regex.test(password);
-    }
 
     // Voor elke requirement die waar is, tel 1 punt op
     if (isNotBlank(password)) score++;
@@ -47,32 +29,32 @@ const passwordVerifier = function (password) {
         valid: score >= 3
     };
 }
-
-
-module.exports = passwordVerifier;
-
-const checkForUppercase = (password) => {
+const isNotBlank = (pw) => {
+    return pw != null
+}
+const isLessThan8Chars = (pw) => {
+    return pw.length < 8
+}
+const hasUppercase = (pw) => {
     const regex = /^.*[A-Z].*/
-    return regex.test(password);
+    return regex.test(pw);
 }
-
-const checkForLowercase = (password) => {
+const hasLowercase = (pw) => {
     const regex = /^.*[a-z].*/
-    return regex.test(password);
+    return regex.test(pw);
 }
 
-const checkForNumber = (password) => {
+const hasDigit = (pw) => {
     const regex = /^.*[0-9].*/
-    return regex.test(password);
+    return regex.test(pw);
 }
 
 module.exports = {
-    checkUppercase: checkForUppercase,
-    checkLowercase: checkForLowercase,
-    checkNumber: checkForNumber,
+    isNotBlank,
+    isLessThan8Chars,
+    hasUppercase,
+    hasLowercase,
+    hasDigit,
 }
 
-console.log(passwordVerifier("henk12"))
-console.log(passwordVerifier("HENK33$"))
-console.log(passwordVerifier("12a34"))
-console.log(passwordVerifier(""))
+console.log(isNotBlank("henkie"));
